@@ -13,16 +13,8 @@ function getGeo() {
       document.querySelector("#latitude").textContent = lat;
       document.getElementById("longitude").textContent = lon;
 
-      const data = { lat, lon };
-      const options = {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      };
-
-      const response = await fetch("/api", options);
+      const api_url = `weather/${lat},${lon}`;
+      const response = await fetch(api_url);
       const json = await response.json();
       console.log(json);
     });

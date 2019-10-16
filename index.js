@@ -33,7 +33,6 @@ app.get("/api", (request, response) => {
 });
 
 app.get("/weather/:latlon", async (request, response) => {
-  console.log(request.params);
   const latlon = request.params.latlon.split(",");
   console.log(latlon);
   const lat = latlon[0];

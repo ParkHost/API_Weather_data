@@ -18,7 +18,7 @@ function getGeo() {
       const json = await response.json();
       console.log(json);
       const weerParams = json.weather.liveweer["0"];
-      const air = json.air_quality;
+      const air = json.air_quality.meta.found;
       console.log(weerParams);
 
       const weerDisplay = document.createElement("p");

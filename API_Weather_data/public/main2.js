@@ -15,13 +15,7 @@ async function getData() {
   console.log(data);
 
   for (item of data) {
-    const marker = L.marker([item.lat, item.lon]).addTo(mymap);
-
-    const txt = `Het weer in ${item.weerParams.plaats} is ${item.weerParams.samenv} de verwachting
-    is ${item.weerParams.verw}`;
-
-    marker.bindPopup(txt);
-
-    console.log(txt);
+    L.marker([item.lat, item.lon]).addTo(mymap);
   }
+  console.log(data);
 }

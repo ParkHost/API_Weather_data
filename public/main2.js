@@ -1,4 +1,4 @@
-const mymap = L.map("geoMap").setView([0, 0], 1);
+const mymap = L.map("geoMap").setView([35, -20], 2.5);
 // Making a map and tiles
 const attribution =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
@@ -21,7 +21,5 @@ async function getData() {
     is ${item.weerParams.verw}`;
 
     marker.bindPopup(txt);
-
-    console.log(txt);
   }
 }

@@ -19,7 +19,6 @@ database.loadDatabase();
 
 app.post("/api", (request, response) => {
   const data = request.body;
-  console.log(data);
   const timestamp = Date.now();
   data.timestamp = timestamp;
 
@@ -39,10 +38,8 @@ app.get("/api", (request, response) => {
 
 app.get("/weather/:latlon", async (request, response) => {
   const latlon = request.params.latlon.split(",");
-  console.log(latlon);
   const lat = latlon[0];
   const lon = latlon[1];
-  console.log(lat, lon);
   const api_key = process.env.API_KEY;
   const weather_url = `http://weerlive.nl/api/json-data-10min.php?key=${api_key}&locatie=${lat},${lon}`;
   const weather_repsonse = await fetch(weather_url);

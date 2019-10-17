@@ -16,16 +16,14 @@ function getGeo() {
       const api_url = `weather/${lat},${lon}`;
       const response = await fetch(api_url);
       const json = await response.json();
-      console.log(json);
       const weerParams = json.weather.liveweer["0"];
       const air = json.air_quality;
-      console.log(weerParams);
 
       const weerDisplay = document.createElement("p");
       const airDisplay = document.createElement("p");
 
       weerDisplay.textContent = `Plaats: ${weerParams.plaats}, Temp: ${weerParams.temp}, Text: ${weerParams.samenv}`;
-      airDisplay.textContent = `Air Quality Found : ${air}`;
+      airDisplay.textContent = `Air Quality Found : ${air.meta.found}`;
 
       document.body.append(weerDisplay);
       document.body.append(airDisplay);
@@ -41,7 +39,6 @@ function getGeo() {
 
       const db_response = await fetch("/api", options);
       const db_json = await db_response.json();
-      console.log(db_json);
     });
   } else {
     console.log("geolocation is not available");
